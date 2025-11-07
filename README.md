@@ -95,3 +95,33 @@ Las clases de prueba se ubican en `src/test/` y permiten verificar el correcto f
 
 📅 **Última actualización:** 4/11/2025  
 📘 **Versión:** 1.0 – Entrega parcial (Cordero)
+
+---
+### Integrante responsable capa 2
+**Giardini Silvia**  
+ 
+Comisión 07 – Tecnicatura Universitaria en Programación a Distancia (UTN)
+ 
+Rol: Implementación el patrón DAO (Data Access Object), que actúa como el "puente" entre las Entidades (Capa 1) y la base de datos MySQL.
+Uso de PreparedStatement en todas las operaciones.
+│
+├── src/
+│   ├── dao/
+│   │    ├── GenericDAO.java         // Interfaz genérica (CRUD)
+│   │    ├── EmpleadoDAO.java        // Interfaz específica (añade getByDni)
+│   │    ├── LegajoDAO.java          // Interfaz específica (añade crearLegajo)
+│   │    ├── EmpleadoDAOImpl.java    // Implementación JDBC para Empleado
+│   │    └── LegajoDAOImpl.java      // Implementación JDBC para Legajo
+
+### 📄 Estado actual
+✅ Config y Entities  
+✅ Conexión JDBC  
+✅ Script SQL 
+✅ Main de prueba  
+✅ Dao
+🔜 Service / Main (en desarrollo)
+
+---
+📅 **Última actualización:** 7/11/2025  
+---
+
