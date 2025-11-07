@@ -104,6 +104,9 @@ Comisión 07 – Tecnicatura Universitaria en Programación a Distancia (UTN)
  
 Rol: Implementación el patrón DAO (Data Access Object), que actúa como el "puente" entre las Entidades (Capa 1) y la base de datos MySQL.
 Uso de PreparedStatement en todas las operaciones.
+
+```
+TFI_ProgramacionII_EmpleadoLegajo/
 │
 ├── src/
 │   ├── dao/
@@ -112,6 +115,7 @@ Uso de PreparedStatement en todas las operaciones.
 │   │    ├── LegajoDAO.java          // Interfaz específica (añade crearLegajo)
 │   │    ├── EmpleadoDAOImpl.java    // Implementación JDBC para Empleado
 │   │    └── LegajoDAOImpl.java      // Implementación JDBC para Legajo
+```
 
 ### 📄 Estado actual
 ✅ Config y Entities  
