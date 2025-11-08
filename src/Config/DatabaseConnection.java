@@ -10,30 +10,30 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     
 
-    // ? Datos de conexión - Se configuran directamente en el código
+    // ? Datos de conexiï¿½n - Se configuran directamente en el cï¿½digo
     private static final String URL = "jdbc:mysql://localhost:3306/empresa?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
-    private static final String PASSWORD = "";  // vacío si usás XAMPP sin contraseña
+    private static final String PASSWORD = "root";  // Prueba con "root" primero
 
     static {
         try {
             // ? Carga del driver JDBC de MySQL una sola vez
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
-            // ? Se lanza una excepción si el driver no está disponible
-            throw new RuntimeException("Error: No se encontró el driver JDBC.", e);
+            // ? Se lanza una excepciï¿½n si el driver no estï¿½ disponible
+            throw new RuntimeException("Error: No se encontrï¿½ el driver JDBC.", e);
         }
     }
 
     /**
-     * ? Método para obtener una conexión a la base de datos.
-     * @return Connection si la conexión es exitosa.
+     * ? Mï¿½todo para obtener una conexiï¿½n a la base de datos.
+     * @return Connection si la conexiï¿½n es exitosa.
      * @throws SQLException Si hay un problema al conectarse.
      */
     public static Connection getConnection() throws SQLException {
-        // Validación adicional: evita credenciales vacías
+        // Validaciï¿½n adicional: evita credenciales vacï¿½as
         if (URL == null || URL.isEmpty() || USER == null || USER.isEmpty()) {
-            throw new SQLException("Configuración de la base de datos incompleta o inválida.");
+            throw new SQLException("Configuraciï¿½n de la base de datos incompleta o invï¿½lida.");
         }
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }

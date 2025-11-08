@@ -15,7 +15,7 @@ CREATE TABLE empleados (
     apellido VARCHAR(80) NOT NULL,
     dni VARCHAR(15) NOT NULL UNIQUE,
     email VARCHAR(120) CHECK (email LIKE '%@%.%'),
-    fecha_ingreso DATE CHECK (fecha_ingreso <= '2025-10-06'),
+    fecha_ingreso DATE,
     area VARCHAR(50)
 );
 
@@ -25,7 +25,7 @@ CREATE TABLE legajos (
     nro_legajo VARCHAR(20) NOT NULL UNIQUE,
     categoria VARCHAR(30),
     estado ENUM('ACTIVO', 'INACTIVO') NOT NULL,
-    fecha_alta DATE CHECK (fecha_alta <= '2025-10-06'),
+    fecha_alta DATE,
     observaciones VARCHAR(255),
     empleado_id BIGINT NOT NULL UNIQUE,
     CONSTRAINT fk_empleado FOREIGN KEY (empleado_id) REFERENCES empleados(id) ON DELETE CASCADE ON UPDATE CASCADE
