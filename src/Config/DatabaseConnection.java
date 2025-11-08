@@ -10,7 +10,7 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     
 
-    // ? Datos de conexi�n - Se configuran directamente en el c�digo
+    // ? Datos de conexion - Se configuran directamente en el codigo
     private static final String URL = "jdbc:mysql://localhost:3306/empresa?useSSL=false&serverTimezone=UTC";
     private static final String USER = "root";
     private static final String PASSWORD = "root";  // Prueba con "root" primero
@@ -21,19 +21,19 @@ public class DatabaseConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException e) {
             // ? Se lanza una excepci�n si el driver no est� disponible
-            throw new RuntimeException("Error: No se encontr� el driver JDBC.", e);
+            throw new RuntimeException("Error: No se encontro el driver JDBC.", e);
         }
     }
 
     /**
-     * ? M�todo para obtener una conexi�n a la base de datos.
-     * @return Connection si la conexi�n es exitosa.
+     * ? Metodo para obtener una conexion a la base de datos.
+     * @return Connection si la conexion es exitosa.
      * @throws SQLException Si hay un problema al conectarse.
      */
     public static Connection getConnection() throws SQLException {
-        // Validaci�n adicional: evita credenciales vac�as
+        // Validacion adicional: evita credenciales vacias
         if (URL == null || URL.isEmpty() || USER == null || USER.isEmpty()) {
-            throw new SQLException("Configuraci�n de la base de datos incompleta o inv�lida.");
+            throw new SQLException("Configuracion de la base de datos incompleta o invalida.");
         }
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }

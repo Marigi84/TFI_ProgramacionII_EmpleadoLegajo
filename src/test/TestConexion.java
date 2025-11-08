@@ -16,13 +16,13 @@ public class TestConexion {
 
     public static void main(String[] args) {
         /**
-         * ? Se usa un bloque try-with-resources para asegurar que la conexión
-         *     se cierre automáticamente al salir del bloque.
-         * ? No es necesario llamar explícitamente a conn.close().
+         * ? Se usa un bloque try-with-resources para asegurar que la conexion
+         *     se cierre automaticamente al salir del bloque.
+         * ? No es necesario llamar explicitamente a conn.close().
          */
         try (Connection conn = DatabaseConnection.getConnection()) {
             if (conn != null) {
-                System.out.println("? Conexión establecida con éxito.");
+                System.out.println("? Conexion establecida con exito.");
 
                 // ? Consulta simple a la tabla empleados
                 String sql = "SELECT id, nombre, apellido, dni, email, area FROM empleados";
@@ -46,7 +46,7 @@ public class TestConexion {
                                 " | Apellido: " + apellido +
                                 " | DNI: " + dni +
                                 " | Email: " + email +
-                                " | Área: " + area);
+                                " | Area: " + area);
                     }
                     System.out.println("------------------------------------------------------");
                 }
@@ -63,13 +63,13 @@ public class TestConexion {
                 }
 
             } else {
-                System.out.println("? No se pudo establecer la conexión.");
+                System.out.println("? No se pudo establecer la conexion.");
             }
 
         } catch (SQLException e) {
-            // ? Manejo de errores en la conexión a la base de datos
+            // ? Manejo de errores en la conexion a la base de datos
             System.err.println("?? Error al conectar a la base de datos: " + e.getMessage());
-            e.printStackTrace(); // Imprime el stack trace completo para depuración
+            e.printStackTrace(); // Imprime el stack trace completo para depuracion
         }
     }
 }

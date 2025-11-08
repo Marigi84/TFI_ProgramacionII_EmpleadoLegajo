@@ -8,10 +8,10 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-// Implementación JDBC del DAO de Legajo
+// Implementacion JDBC del DAO de Legajo
 public class LegajoDAOImpl implements LegajoDAO {
 
-    // Método específico de la clase LegajoDAO para crear Legajo con el empleadoId
+    // Metodo especifico de la clase LegajoDAO para crear Legajo con el empleadoId
     @Override
     public void crearLegajo(Legajo legajo, Connection conn, Long empleadoId) throws Exception {
         String sql = "INSERT INTO legajos (eliminado, nro_legajo, categoria, estado, fecha_alta, observaciones, empleado_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -23,7 +23,7 @@ public class LegajoDAOImpl implements LegajoDAO {
             stmt.setString(4, legajo.getEstado().name()); 
             stmt.setDate(5, legajo.getFechaAlta() != null ? Date.valueOf(legajo.getFechaAlta()) : null);
             stmt.setString(6, legajo.getObservaciones());
-            stmt.setLong(7, empleadoId); // La clave foránea
+            stmt.setLong(7, empleadoId); // La clave foranea
             
             stmt.executeUpdate();
             
@@ -31,7 +31,7 @@ public class LegajoDAOImpl implements LegajoDAO {
                 if (rs.next()) {
                     legajo.setId(rs.getLong(1)); // Asignamos el ID
                 } else {
-                    throw new SQLException("La inserción del legajo falló, no se obtuvo ID.");
+                    throw new SQLException("La insercion del legajo fallo, no se obtuvo ID.");
                 }
             }
         } catch (SQLException e) {
@@ -39,10 +39,10 @@ public class LegajoDAOImpl implements LegajoDAO {
         }
     }
 
-    // Override del método genérico, no se usa, pero hay que escribirlo obligatoriamente por la implementación de GenericDAO.
+    // Override del metodo generico, no se usa, pero hay que escribirlo obligatoriamente por la implementacion de GenericDAO.
     @Override
     public void crear(Legajo legajo, Connection conn) throws Exception {
-        throw new UnsupportedOperationException("Operación no permitida: Un legajo no puede crearse solo");
+        throw new UnsupportedOperationException("Operacion no permitida: Un legajo no puede crearse solo");
     }
 
     // Actualizamos solo los campos editables

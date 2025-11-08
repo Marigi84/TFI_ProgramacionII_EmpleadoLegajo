@@ -8,21 +8,21 @@ import java.time.LocalDate;
 import java.util.List;
 
 /**
- * Test básico para verificar que Service funciona correctamente.
+ * Test basico para verificar que Service funciona correctamente.
  * 
  * PREREQUISITOS:
  * 1. Base de datos 'empresa' creada con el script SQL
  * 2. Datos de prueba insertados
- * 3. MySQL ejecutándose
+ * 3. MySQL ejecutandose
  * 
  * TESTS:
  * 1. Listar todos los empleados
  * 2. Buscar empleado por ID
  * 3. Buscar empleado por DNI
  * 4. Insertar nuevo empleado SIN legajo
- * 5. Insertar nuevo empleado CON legajo (transacción)
+ * 5. Insertar nuevo empleado CON legajo (transaccion)
  * 6. Actualizar empleado
- * 7. Eliminar empleado (baja lógica)
+ * 7. Eliminar empleado (baja logica)
  * 8. Validaciones (campos obligatorios)
  */
 public class TestServiceBasico {

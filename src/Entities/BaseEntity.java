@@ -6,7 +6,7 @@ public abstract class BaseEntity {
     protected Boolean eliminado;
 
     public BaseEntity() {
-        this.eliminado = false; // Por defecto los registros están activos
+        this.eliminado = false; // Por defecto los registros estan activos
     }
 
     public BaseEntity(Long id, Boolean eliminado) {

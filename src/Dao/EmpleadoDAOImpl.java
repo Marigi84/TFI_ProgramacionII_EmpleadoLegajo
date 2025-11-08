@@ -12,7 +12,7 @@ import java.util.List;
 // Implementación JDBC de Empleados
 // ESTE DAO SOLO ES RESPONSABLE DE LA TABLA empleados
 // Sigue el estilo que pide el tp (crear, leer, etc.) 
-// recibe la Conexion en métodos crear actualizar borrar, para que la Capa Service pueda manejar las transacciones.
+// recibe la Conexion en metodos crear actualizar borrar, para que la Capa Service pueda manejar las transacciones.
 
 public class EmpleadoDAOImpl implements EmpleadoDAO {
 
@@ -40,8 +40,8 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 if (rs.next()) {
                     empleado.setId(rs.getLong(1));
                 } else {
-                    // Si no se genera ID, lanzamos excepción 
-                    throw new SQLException("La inserción del empleado falló.");
+                    // Si no se genera ID, lanzamos excepcion 
+                    throw new SQLException("La insercion del empleado fallo.");
                 }
             }
 
@@ -69,7 +69,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
 
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    //Aqui iría un bloque de codigo que se repite en los siguientes 3 metodos, por eso se unificó en un unico bloque llamado 
+                    //Aqui iria un bloque de codigo que se repite en los siguientes 3 metodos, por eso se unifico en un unico bloque llamado 
                     //mapearEmpleado(), de esta forma solo lo llamamos y no repetimos
                     
                     return mapearEmpleado(rs);
@@ -117,8 +117,8 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
             int filasAfectadas = stmt.executeUpdate();
 
             if (filasAfectadas == 0) {
-                // Si no se actualizó nada (ej. el ID no existía), lanzamos excepción
-                throw new SQLException("No se actualizó el empleado, ID no encontrado: " + empleado.getId());
+                // Si no se actualizo nada (ej. el ID no existia), lanzamos excepcion
+                throw new SQLException("No se actualizo el empleado, ID no encontrado: " + empleado.getId());
             }
 
            
@@ -145,7 +145,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
         }
     }
 
-    // Búsqueda por DNI (método específico de EmpleadoDAO)
+    // Busqueda por DNI (metodo especifico de EmpleadoDAO)
     @Override
     public Empleado getByDni(String dni) throws Exception {
         String sql = "SELECT e.*, l.id AS legajo_id, l.nro_legajo, l.categoria, l.estado, l.fecha_alta, l.observaciones "
@@ -168,8 +168,8 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
         return null;
     }
 
-    // Método para convertir ResultSet a objeto Empleado
-    // Evita duplicar código en leer(), leerTodos() y getByDni()
+    // Metodo para convertir ResultSet a objeto Empleado
+    // Evita duplicar codigo en leer(), leerTodos() y getByDni()
     private Empleado mapearEmpleado(ResultSet rs) throws SQLException {
         Empleado empleado = new Empleado();
 

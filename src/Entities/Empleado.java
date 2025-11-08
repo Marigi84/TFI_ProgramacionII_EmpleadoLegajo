@@ -10,7 +10,7 @@ public class Empleado extends BaseEntity {
     private String email;
     private LocalDate fechaIngreso;
     private String area;
-    private Legajo legajo; // Relación 1?1 unidireccional
+    private Legajo legajo; // Relacion 1:1 unidireccional
 
     public Empleado() {}
 
