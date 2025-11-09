@@ -8,34 +8,78 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 public class DatabaseConnection {
-    
+   
+    /** URL de conexión JDBC: configurable o usa valor por defecto */
+    private static final String URL = System.getProperty("db.url", 
+            "jdbc:mysql://localhost:3306/empresa?useSSL=false&serverTimezone=UTC");
 
-    // ? Datos de conexion - Se configuran directamente en el codigo
-    private static final String URL = "jdbc:mysql://localhost:3306/empresa?useSSL=false&serverTimezone=UTC";
-    private static final String USER = "root";
-    private static final String PASSWORD = "root";  // Prueba con "root" primero
+    /** Usuario de la base de datos: configurable o usa "root" */
+    private static final String USER = System.getProperty("db.user", "root");
 
+    /** Contraseña: configurable o vacía si no se define */
+    private static final String PASSWORD = System.getProperty("db.password", "");
+
+    /**
+     * Bloque estático de inicialización.
+     * Se ejecuta UNA SOLA VEZ cuando la clase se carga en memoria.
+     * 
+     * - Carga el driver JDBC de MySQL
+     * - Valida la configuración básica (fail-fast)
+     */
     static {
         try {
-            // ? Carga del driver JDBC de MySQL una sola vez
+            // Carga explícita del driver JDBC
             Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Validación temprana de configuración
+            validateConfiguration();
         } catch (ClassNotFoundException e) {
-            // ? Se lanza una excepciï¿½n si el driver no estï¿½ disponible
-            throw new RuntimeException("Error: No se encontro el driver JDBC.", e);
+            throw new ExceptionInInitializerError("? Error: No se encontró el driver JDBC de MySQL. " + e.getMessage());
+        } catch (IllegalStateException e) {
+            throw new ExceptionInInitializerError("? Error en la configuración de la base de datos: " + e.getMessage());
         }
+    }
+
+    /** Constructor privado: evita instanciación (clase utilitaria). */
+    private DatabaseConnection() {
+        throw new UnsupportedOperationException("Clase utilitaria: no debe instanciarse.");
     }
 
     /**
-     * ? Metodo para obtener una conexion a la base de datos.
-     * @return Connection si la conexion es exitosa.
-     * @throws SQLException Si hay un problema al conectarse.
+     * Devuelve una nueva conexión a la base de datos.
+     * 
+     * ? Uso recomendado:
+     * <pre>
+     * try (Connection conn = DatabaseConnection.getConnection()) {
+     *     // usar la conexión
+     * }
+     * </pre>
+     * 
+     * @return conexión JDBC activa
+     * @throws SQLException si no se puede conectar
      */
     public static Connection getConnection() throws SQLException {
-        // Validacion adicional: evita credenciales vacias
-        if (URL == null || URL.isEmpty() || USER == null || USER.isEmpty()) {
-            throw new SQLException("Configuracion de la base de datos incompleta o invalida.");
-        }
         return DriverManager.getConnection(URL, USER, PASSWORD);
     }
-}
 
+    /**
+     * Valida que la configuración no tenga errores.
+     * 
+     * Reglas:
+     * - URL y USER no deben ser null ni vacíos.
+     * - PASSWORD puede ser vacío, pero no null.
+     */
+    private static void validateConfiguration() {
+        if (URL == null || URL.trim().isEmpty()) {
+            throw new IllegalStateException("La URL de la base de datos no está configurada.");
+        }
+        if (USER == null || USER.trim().isEmpty()) {
+            throw new IllegalStateException("El usuario de la base de datos no está configurado.");
+        }
+        if (PASSWORD == null) {
+            throw new IllegalStateException("La contraseña no puede ser null (puede ser vacía).");
+        }
+    }
+
+}
+    
