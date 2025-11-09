@@ -1,6 +1,7 @@
 package Service;
 
 import Config.DatabaseConnection;
+import Config.TransactionManager;
 import Dao.LegajoDAO;
 import Dao.LegajoDAOImpl;
 import Entities.Legajo;
@@ -10,18 +11,9 @@ import java.util.List;
 
 /**
  * Implementación del servicio de negocio para la entidad Legajo.
- * Capa intermedia entre la UI y el DAO que aplica validaciones y restricciones de negocio.
- *
- * Responsabilidades:
- * - Validar que los datos del legajo sean correctos ANTES de persistir
- * - Aplicar restricciones de integridad referencial
- * - Coordinar transacciones para operaciones de actualización y eliminación
- * - Bloquear operaciones inválidas (inserción directa sin empleado)
- *
- * IMPORTANTE: Un legajo NO puede existir sin un empleado asociado debido a la
- * constraint de BD: empleado_id NOT NULL en la tabla legajos.
- *
- * Patrón: Service Layer con transacciones manuales
+ * Aplica validaciones y restricciones de integridad referencial.
+ * 
+ * IMPORTANTE: Un legajo NO puede existir sin un empleado asociado.
  */
 public class LegajoServiceImpl implements LegajoService {
     private final LegajoDAO legajoDAO;
@@ -35,15 +27,10 @@ public class LegajoServiceImpl implements LegajoService {
     
     /**
      * Operación NO soportada: un legajo no puede insertarse sin empleado asociado.
-     *
-     * Razón técnica: La columna empleado_id en la tabla legajos tiene constraint
-     * NOT NULL, por lo que la BD rechazaría cualquier INSERT sin FK válida.
-     *
-     * ALTERNATIVA CORRECTA: Use EmpleadoService.crearEmpleadoConLegajo()
-     * que crea ambas entidades en una transacción ACID.
+     * Use EmpleadoService.crearEmpleadoConLegajo() en su lugar.
      *
      * @param legajo Legajo a insertar
-     * @throws UnsupportedOperationException Siempre (operación bloqueada por diseño)
+     * @throws UnsupportedOperationException Siempre
      */
     @Override
     public void insertar(Legajo legajo) throws Exception {
@@ -54,12 +41,7 @@ public class LegajoServiceImpl implements LegajoService {
     }
     
     /**
-     * Actualiza un legajo existente en la base de datos.
-     *
-     * Validaciones:
-     * - El legajo debe tener ID > 0 (debe estar persistido)
-     * - Número de legajo y estado son obligatorios
-     * - Estado debe ser ACTIVO o INACTIVO
+     * Actualiza un legajo existente.
      *
      * @param legajo Legajo con los datos actualizados
      * @throws Exception Si la validación falla o el legajo no existe
@@ -71,31 +53,23 @@ public class LegajoServiceImpl implements LegajoService {
         }
         validarLegajo(legajo);
         
-        Connection conn = null;
-        try {
-            conn = DatabaseConnection.getConnection();
-            conn.setAutoCommit(false);
+        try (Connection conn = DatabaseConnection.getConnection();
+             TransactionManager tx = new TransactionManager(conn)) {
             
+            tx.startTransaction();
             legajoDAO.actualizar(legajo, conn);
+            tx.commit();
             
-            conn.commit();
         } catch (Exception e) {
-            if (conn != null) conn.rollback();
             throw new Exception("Error al actualizar legajo: " + e.getMessage(), e);
-        } finally {
-            if (conn != null) {
-                conn.setAutoCommit(true);
-                conn.close();
-            }
         }
     }
     
     /**
      * Elimina lógicamente un legajo (soft delete).
-     * Marca el legajo como eliminado sin borrarlo físicamente de la BD.
      *
      * @param id ID del legajo a eliminar
-     * @throws Exception Si id <= 0 o no existe el legajo
+     * @throws Exception Si el ID es inválido o no existe el legajo
      */
     @Override
     public void eliminar(Long id) throws Exception {
@@ -103,22 +77,15 @@ public class LegajoServiceImpl implements LegajoService {
             throw new IllegalArgumentException("El ID debe ser mayor a 0");
         }
         
-        Connection conn = null;
-        try {
-            conn = DatabaseConnection.getConnection();
-            conn.setAutoCommit(false);
+        try (Connection conn = DatabaseConnection.getConnection();
+             TransactionManager tx = new TransactionManager(conn)) {
             
+            tx.startTransaction();
             legajoDAO.eliminar(id, conn);
+            tx.commit();
             
-            conn.commit();
         } catch (Exception e) {
-            if (conn != null) conn.rollback();
             throw new Exception("Error al eliminar legajo: " + e.getMessage(), e);
-        } finally {
-            if (conn != null) {
-                conn.setAutoCommit(true);
-                conn.close();
-            }
         }
     }
     
@@ -126,8 +93,8 @@ public class LegajoServiceImpl implements LegajoService {
      * Obtiene un legajo por su ID.
      *
      * @param id ID del legajo a buscar
-     * @return Legajo encontrado, o null si no existe o está eliminado
-     * @throws Exception Si id <= 0 o hay error de BD
+     * @return Legajo encontrado, o null si no existe
+     * @throws Exception Si el ID es inválido
      */
     @Override
     public Legajo getById(Long id) throws Exception {
@@ -138,9 +105,9 @@ public class LegajoServiceImpl implements LegajoService {
     }
     
     /**
-     * Obtiene todos los legajos activos (no eliminados).
+     * Obtiene todos los legajos activos.
      *
-     * @return Lista de legajos activos (puede estar vacía)
+     * @return Lista de legajos
      * @throws Exception Si hay error de BD
      */
     @Override
@@ -149,11 +116,7 @@ public class LegajoServiceImpl implements LegajoService {
     }
     
     /**
-     * Valida que un legajo tenga todos los datos obligatorios.
-     *
-     * Reglas de negocio aplicadas:
-     * - Número de legajo es obligatorio (no null, no vacío)
-     * - Estado es obligatorio (debe ser ACTIVO o INACTIVO del enum Estado)
+     * Valida que un legajo tenga los datos obligatorios.
      *
      * @param legajo Legajo a validar
      * @throws IllegalArgumentException Si alguna validación falla
