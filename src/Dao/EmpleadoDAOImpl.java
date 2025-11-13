@@ -9,12 +9,12 @@ import java.time.LocalDate; // Import para mapeo
 import java.util.ArrayList;
 import java.util.List;
 
-// Implementaci�n JDBC de EmpleadoDAO.
-// Implementa tanto los m�todos aut�nomos (de GenericDAO)
-// como los transaccionales (a�adidos en EmpleadoDAO).
+// Implementacion JDBC de EmpleadoDAO.
+// Implementa tanto los metodos autonomos (de GenericDAO)
+// como los transaccionales (añadidos en EmpleadoDAO).
 public class EmpleadoDAOImpl implements EmpleadoDAO {
 
-    // --- M�TODOS TRANSACCIONALES ---
+    // --- METODOS TRANSACCIONALES ---
     @Override
     public void crear(Empleado empleado, Connection conn) throws Exception {
         String sql = "INSERT INTO empleados (eliminado, nombre, apellido, dni, email, fecha_ingreso, area) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -33,7 +33,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
                 if (rs.next()) {
                     empleado.setId(rs.getLong(1));
                 } else {
-                    throw new SQLException("La inserci�n del empleado fall�, no se obtuvo ID.");
+                    throw new SQLException("La insercion del empleado falló, no se obtuvo ID.");
                 }
             }
         } catch (SQLException e) {
@@ -53,7 +53,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
             stmt.setLong(6, empleado.getId());
 
             if (stmt.executeUpdate() == 0) {
-                throw new SQLException("No se actualiz� el empleado, ID no encontrado: " + empleado.getId());
+                throw new SQLException("No se actualizo el empleado, ID no encontrado: " + empleado.getId());
             }
         } catch (SQLException e) {
             throw new Exception("Error al actualizar Empleado: " + e.getMessage(), e);
@@ -86,9 +86,9 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
         }
     }
 
-    // --- M�TODOS AUT�NOMOS (Implementaci�n de GenericDAO) ---
-    // Estos m�todos solo abren una conexi�n y "envuelven" la llamada
-    // al m�todo transaccional de arriba.
+    // --- METODOS AUTONOMOS (Implementacion de GenericDAO) ---
+    // Estos metodos solo abren una conexion y "envuelven" la llamada
+    // al metodo transaccional de arriba.
     @Override
     public void crear(Empleado empleado) throws Exception {
         try (Connection conn = DatabaseConnection.getConnection()) {
@@ -116,7 +116,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
         }
     }
 
-    // --- M�TODOS DE LECTURA  ---
+    // --- METODOS DE LECTURA  ---
     @Override
     public Empleado leer(long id) throws Exception {
         String sql = "SELECT e.*, l.id AS legajo_id, l.nro_legajo, l.categoria, l.estado, l.fecha_alta, l.observaciones "
@@ -175,7 +175,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
         return null;
     }
 
-    // --- M�TODO HELPER (Mapeo) ---
+    // --- METODO DE AYUDA (Mapeo) ---
     private Empleado mapearEmpleado(ResultSet rs) throws SQLException {
         Empleado empleado = new Empleado();
 
