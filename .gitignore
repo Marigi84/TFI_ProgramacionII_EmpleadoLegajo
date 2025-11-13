@@ -1,4 +1,16 @@
-.env
-.idea
-/dist/
-out
+# Compilados
+*.class
+
+# NetBeans build directory
+/build/
+
+# Archivos privados de NetBeans
+nbproject/private/
+
+# Logs y temporales
+*.log
+*.cache
+
+# IntelliJ
+.idea/
+out/
