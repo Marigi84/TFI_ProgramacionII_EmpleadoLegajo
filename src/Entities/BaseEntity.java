@@ -1,5 +1,14 @@
 
 package Entities;
+/**
+ * Clase abstracta base para todas las entidades del dominio.
+ * 
+ * Contiene los atributos y métodos comunes:
+ * - id: identificador único
+ * - eliminado: indica si el registro fue dado de baja lógica
+ *
+ * Aplicación del principio de reutilización mediante herencia.
+ */
 
 public abstract class BaseEntity {
     protected Long id;
@@ -21,7 +30,8 @@ public abstract class BaseEntity {
     public void setEliminado(Boolean eliminado) { this.eliminado = eliminado; }
 
     @Override
-    public String toString() {
-        return "ID=" + id + ", eliminado=" + eliminado;
-    }
+public String toString() {
+    return getClass().getSimpleName() + " [id=" + id + ", eliminado=" + eliminado + "]";
+}
+
 }
