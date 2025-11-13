@@ -42,16 +42,20 @@ TFI_ProgramacionII_EmpleadoLegajo/
 │        ├── TestConexion.java
 │        └── mainEntidades.java
 │
+├── sql/
+│   ├── sql01_creacion_bd.sql
+│   └── sql02_datos_prueba.sql
+│
 ├── .gitignore
 └── README.md
-
 ---
 
 ### ⚙️ Ejecución
-1. Crear la base ejecutando en MySQL Workbench:  
-   ```sql
-   SOURCE sql/01_creacion_y_datos_prueba.sql;
-   ```
+1. Crear la base ejecutando en MySQL Workbench:
+
+SOURCE sql/sql01_creacion_bd.sql;
+SOURCE sql/sql02_datos_prueba.sql;
+
 2. Abrir el proyecto en **NetBeans**.  
 3. Agregar el conector **mysql-connector-j-8.4.0.jar** a *Libraries*.  
 4. Ejecutar `DatabaseConnection.java`.  
