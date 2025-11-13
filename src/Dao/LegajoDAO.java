@@ -3,16 +3,16 @@ package Dao;
 import Entities.Legajo;
 import java.sql.Connection;
 
-// Interfaz espec�fica para operaciones de Legajo.
-// Hereda los m�todos CRUD est�ndar de GenericDAO (aut�nomos).
-// Agrega m�todos transaccionales con Connection externa.
-// 
+// Interfaz especifica para operaciones de Legajo.
+// Hereda los metodos CRUD estandar de GenericDAO.
+// Agrega metodos transaccionales con Connection externa.
+
 public interface LegajoDAO extends GenericDAO<Legajo> {
 
-    // --- M�todos transaccionales ---
-// M�todo espec�fico para crear un Legajo asociado a un Empleado.
-// Este es el m�todo que DEBE usar el Service, ya que recibe
-// la 'Connection' de la transacci�n y el 'empleadoId' (la FK).
+    // --- Metodos transaccionales ---
+// Metodo especifico para crear un Legajo asociado a un Empleado.
+// Este es el metodo que DEBE usar el Service, ya que recibe
+// la 'Connection' de la transaccion y el 'empleadoId' (la FK).
     void crearLegajo(Legajo legajo, Connection conn, Long empleadoId) throws Exception;
 
     void crear(Legajo legajo, Connection conn) throws Exception;
