@@ -8,11 +8,11 @@ import java.time.LocalDate; // Import para mapeo
 import java.util.ArrayList;
 import java.util.List;
 
-// Implementaci�n JDBC de LegajoDAO.
-// Bloquea el 'crear' gen�rico y expone 'crearLegajo'.
+// Implementacion JDBC de LegajoDAO.
+// Bloquea el 'crear' generico y expone 'crearLegajo'.
 public class LegajoDAOImpl implements LegajoDAO {
 
-    // --- M�TODO TRANSACCIONAL ---
+    // --- METODO TRANSACCIONAL ---
     @Override
     public void crearLegajo(Legajo legajo, Connection conn, Long empleadoId) throws Exception {
         String sql = "INSERT INTO legajos (eliminado, nro_legajo, categoria, estado, fecha_alta, observaciones, empleado_id) VALUES (?, ?, ?, ?, ?, ?, ?)";
@@ -31,7 +31,7 @@ public class LegajoDAOImpl implements LegajoDAO {
                 if (rs.next()) {
                     legajo.setId(rs.getLong(1));
                 } else {
-                    throw new SQLException("La inserci�n del legajo fall�, no se obtuvo ID.");
+                    throw new SQLException("La insercion del legajo fallo, no se obtuvo ID.");
                 }
             }
         } catch (SQLException e) {
@@ -51,7 +51,7 @@ public class LegajoDAOImpl implements LegajoDAO {
             stmt.setLong(6, legajo.getId());
 
             if (stmt.executeUpdate() == 0) {
-                throw new SQLException("No se actualiz� el legajo, ID no encontrado: " + legajo.getId());
+                throw new SQLException("No se actualizo el legajo, ID no encontrado: " + legajo.getId());
             }
         } catch (SQLException e) {
             throw new Exception("Error al actualizar Legajo: " + e.getMessage(), e);
@@ -83,7 +83,7 @@ public class LegajoDAOImpl implements LegajoDAO {
             throw new Exception("Error al recuperar Legajo: " + e.getMessage(), e);
         }
     }
-    // --- M�TODOS AUT�NOMOS (Wrappers) ---
+    // --- METODOS AUTÓNOMOS (Wrappers) ---
     @Override
     public void actualizar(Legajo legajo) throws Exception {
         try (Connection conn = DatabaseConnection.getConnection()) {
@@ -103,25 +103,25 @@ public class LegajoDAOImpl implements LegajoDAO {
             this.recuperar(id, conn);
         }
     }
-    // --- M�TODOS "BLOQUEADOS" (Por seguridad) ---
+    // --- METODOS "BLOQUEADOS" (Por seguridad) ---
     private void lanzarErrorCrear() throws UnsupportedOperationException {
         throw new UnsupportedOperationException(
-                "Operaci�n no permitida: Un legajo no puede crearse solo. "
-                + "Por favor, use el m�todo: crearLegajo(Legajo, Connection, Long empleadoId)"
+                "Operacion no permitida: Un legajo no puede crearse solo. "
+                + "Por favor, use el metodo: crearLegajo(Legajo, Connection, Long empleadoId)"
         );
     }
 
     @Override
     public void crear(Legajo legajo) throws Exception {
-        lanzarErrorCrear(); // Bloquea el m�todo aut�nomo
+        lanzarErrorCrear(); // Bloquea el metodo autonomo
     }
 
     @Override
     public void crear(Legajo legajo, Connection conn) throws Exception {
-        lanzarErrorCrear(); // Bloquea el m�todo transaccional
+        lanzarErrorCrear(); // Bloquea el metodo transaccional
     }
 
-    // --- M�TODOS DE LECTURA (Aut�nomos por dise�o) ---
+    // --- METODOS DE LECTURA (Autonomos por diseño) ---
     @Override
     public Legajo leer(long id) throws Exception {
         String sql = "SELECT * FROM legajos WHERE id=? AND eliminado=FALSE";
@@ -152,7 +152,7 @@ public class LegajoDAOImpl implements LegajoDAO {
         return lista;
     }
 
-    // --- M�TODO DE AYUDA (Mapeo) ---
+    // --- METODO DE AYUDA (Mapeo) ---
     private Legajo mapearLegajo(ResultSet rs) throws SQLException {
         Legajo legajo = new Legajo();
         legajo.setId(rs.getLong("id"));
