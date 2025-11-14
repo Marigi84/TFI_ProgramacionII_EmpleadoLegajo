@@ -47,9 +47,9 @@ Se incluyen:
 Dentro de la carpeta `/sql/` se incluyen **dos scripts SQL**:
 
 | Archivo | Descripción |
-|----------|--------------|
-| `sql01_creacion_bd.sql` | Crea la base de datos `empresa`, las tablas `empleados` y `legajos`, y define claves primarias, foráneas e índices. |
-| `sql02_datos_prueba.sql` | Inserta registros iniciales de prueba (empleados con legajos asociados). |
+|--------|-------------|
+| [`sql01_creacion_bd.sql`](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/sql/sql01_creacion_bd.sql.sql) | Crea la base de datos `empresa`, las tablas `empleados` y `legajos`, y define claves primarias, foráneas e índices. |
+| [`sql02_datos_prueba.sql`](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/sql/sql02_datos_prueba.sql) | Inserta registros iniciales de prueba (empleados con legajos asociados). |
 
 ### 📋 Pasos para crear la base desde MySQL Workbench o consola:
 
@@ -266,7 +266,7 @@ Representa:
 ---
 
 📘 **Enlace al PDF con todos los UML:**  
-`[🔗 Descargar PDF UML completo](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/Diagramas_UML_Empleado_Legajo_ArquitecturaCompleta.pdf)`
+[🔗 Descargar PDF UML completo](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/Diagramas_UML_Empleado_Legajo_ArquitecturaCompleta.pdf)`
 
 ---
 
