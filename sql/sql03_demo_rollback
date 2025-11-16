@@ -1,0 +1,43 @@
+-- ==========================================================
+-- Archivo: sql03_demo_rollback.sql
+-- Descripción: Prepara datos para la demo de rollback en el video.
+-- Crea un empleado base y su legajo con número "LEG-DUPLICADO"
+-- para que cuando se intente crear otro empleado con ese mismo
+-- número de legajo, falle y se demuestre el rollback automático.
+-- ==========================================================
+
+USE empresa;
+
+-- ==========================================================
+-- LIMPIAR DATOS ANTERIORES DE LA DEMO (por si ya se ejecutó antes)
+-- ==========================================================
+DELETE FROM legajos WHERE nro_legajo = 'LEG-DUPLICADO';
+DELETE FROM empleados WHERE dni = '99999999';
+DELETE FROM empleados WHERE dni = '12312312';
+
+-- ==========================================================
+-- EMPLEADO BASE + LEGAJO DUPLICADO
+-- Este empleado quedará en la BD con el legajo "LEG-DUPLICADO"
+-- ==========================================================
+INSERT INTO empleados (eliminado, nombre, apellido, dni, email, fecha_ingreso, area)
+VALUES (FALSE, 'Pedro', 'González', '99999999', 'pedro.gonzalez@empresa.com', '2024-01-01', 'Administración');
+
+INSERT INTO legajos (eliminado, nro_legajo, categoria, estado, fecha_alta, observaciones, empleado_id)
+VALUES (FALSE, 'LEG-DUPLICADO', 'Senior', 'ACTIVO', '2024-01-01', 'Legajo para demo de rollback', LAST_INSERT_ID());
+
+-- ==========================================================
+-- VERIFICACIÓN: Debe mostrar 1 empleado con legajo LEG-DUPLICADO
+-- ==========================================================
+SELECT 
+    e.id, 
+    e.nombre, 
+    e.apellido, 
+    e.dni, 
+    l.nro_legajo
+FROM empleados e
+INNER JOIN legajos l ON e.id = l.empleado_id
+WHERE l.nro_legajo = 'LEG-DUPLICADO';
+
+-- ==========================================================
+-- Fin del archivo - Base de datos lista para la demo
+-- ==========================================================
