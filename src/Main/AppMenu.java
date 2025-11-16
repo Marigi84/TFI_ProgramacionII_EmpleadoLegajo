@@ -114,11 +114,13 @@ public class AppMenu {
                                             }
                                             
                                             case 4 -> {  // Lista todos los empleados activos
-                                                System.out.println(empleadoService.getAll());
+                                                //System.out.println(empleadoService.getAll());
+                                                empleadoService.getAll().forEach(System.out::println);
                                             }
                                             
                                             case 5 -> { // Lista todos los legajos
-                                                System.out.println(legajoService.getAll());
+                                                //System.out.println(legajoService.getAll());
+                                                legajoService.getAll().forEach(System.out::println);
                                             }
                                             
                                             case 6 -> {  // Vuelve al menú principal
