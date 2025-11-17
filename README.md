@@ -336,8 +336,8 @@ Una visión clara, profesional y lista para presentación en el TFI.
 | Service | ✅ Completa | Alex Dauria |
 | Main | ✅ Completa | Matías Perdigués |
 
-📘 **Versión actual:** 1.3  
-📅 **Última actualización:** 13/11/2025  
+📘 **Versión actual:** 1.4  
+📅 **Última actualización:** 17/11/2025  
 
 ---
 
