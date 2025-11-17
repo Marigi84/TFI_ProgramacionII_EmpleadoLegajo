@@ -66,9 +66,9 @@ Dentro de la carpeta `/sql/` se incluyen **dos scripts SQL**:
 | [`sql03_demo_rollback`](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/sql/sql03_demo_rollback) | Prepara un empleado con el legajo “LEG-DUPLICADO” para forzar un error y mostrar el rollback.). |
 
 
-## 🗄️ Creación de la base de datos
+### 🗄️ - Creación de la base de datos
 
-### 📋 Pasos para crear la base desde MySQL Workbench o consola:
+#### 📋   - Pasos para crear la base desde MySQL Workbench o consola:
 
 1. Abrir el cliente MySQL (Workbench o terminal).  
 2. Ejecutar los scripts en orden:
