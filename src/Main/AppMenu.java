@@ -45,49 +45,11 @@ public class AppMenu {
                             Legajo legajo = crearLegajo();
                             empleado.setLegajo(legajo);
                             empleadoService.crearEmpleadoConLegajo(empleado); // Crea un legajo y lo asocia al empleado antes de insertarlo
-//                            String nuevoLegajo;
-//                            do {
-//                                System.out.println("¿Desea crear un legajo para este empleado (s/n)?: ");
-//                                nuevoLegajo = scan.nextLine();                                
-//                                if (!nuevoLegajo.equalsIgnoreCase("s") && !nuevoLegajo.equalsIgnoreCase("n")) {
-//                                    System.out.println("Opción no válida. Ingrese 's' para sí o 'n' para no.");
-//                                }                                
-//                            } while (!nuevoLegajo.equalsIgnoreCase("s") && !nuevoLegajo.equalsIgnoreCase("n"));    
-//                                if(nuevoLegajo.equalsIgnoreCase("n")){ // Inserta el empleado sin legajo
-//                                empleadoService.insertar(empleado);
-//                            } else { 
-//                                Legajo legajo = crearLegajo();
-//                                empleado.setLegajo(legajo);
-//                                empleadoService.crearEmpleadoConLegajo(empleado); // Crea un legajo y lo asocia al empleado antes de insertarlo
-//                            }
                         }catch (Exception e){
                             System.err.println("Error al insertar los datos del empleado: " + e.getMessage());
                         }
-                    }
-                    
-                    
-//                    case 1 -> {
-//                        try{
-//                            Empleado empleado = crearEmpleado();
-//                            String nuevoLegajo;
-//                            do {
-//                                System.out.println("¿Desea crear un legajo para este empleado (s/n)?: ");
-//                                nuevoLegajo = scan.nextLine();                                
-//                                if (!nuevoLegajo.equalsIgnoreCase("s") && !nuevoLegajo.equalsIgnoreCase("n")) {
-//                                    System.out.println("Opción no válida. Ingrese 's' para sí o 'n' para no.");
-//                                }                                
-//                            } while (!nuevoLegajo.equalsIgnoreCase("s") && !nuevoLegajo.equalsIgnoreCase("n"));    
-//                                if(nuevoLegajo.equalsIgnoreCase("n")){ // Inserta el empleado sin legajo
-//                                empleadoService.insertar(empleado);
-//                            } else { 
-//                                Legajo legajo = crearLegajo();
-//                                empleado.setLegajo(legajo);
-//                                empleadoService.crearEmpleadoConLegajo(empleado); // Crea un legajo y lo asocia al empleado antes de insertarlo
-//                            }
-//                        }catch (Exception e){
-//                            System.err.println("Error al insertar los datos del empleado: " + e.getMessage());
-//                        }
-//                    }
+                    }                    
+
 
             //**************Se aplican las funciones de lectura definidas para las dos entidades en la capa Servicios***************
             //**************Permite al usuario buscar empleados o legajos por distintos criterios o listar todos los registros*********
