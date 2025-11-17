@@ -333,7 +333,7 @@ Una visión clara, profesional y lista para presentación en el TFI.
 | Config / Entities | ✅ Completa | Marina Cordero |
 | DAO | ✅ Completa | Silvia Giardini |
 | Service | ✅ Completa | Alex Dauria |
-| Main | 🔜 En desarrollo | Matías Perdigués |
+| Main | ✅ Completa | Matías Perdigués |
 
 📘 **Versión actual:** 1.3  
 📅 **Última actualización:** 13/11/2025  
