@@ -53,7 +53,7 @@ Se incluyen:
 
 ---
 
-<img width="30" height="30" alt="image" src="https://github.com/user-attachments/assets/6461436f-f829-47fa-9b13-05132815522a" />
+
 
 
 ## 🗄️ Creación de la base de datos
