@@ -4,6 +4,17 @@
 
 ---
 
+## 👥 Equipo de desarrollo
+
+| Integrante | Comisión | Rol / Aporte |
+|-------------|---------------|---------------|
+| **Marina Giselle Cordero** | Comisión 07 | UML, Config, Entities, SQL, Test, Documentación |
+| **Silvia Giardini** | Comisión 07 | DAO (persistencia y CRUD con JDBC, manejo de excepciones) |
+| **Alex Dauria** | Comisión 06 | Service (transacciones, validaciones y reglas de negocio) |
+| **Matías Perdigués** | Comisión 01 | Main (AppMenu, pruebas de flujo y consola interactiva) |
+
+---
+
 ## 🧩 Descripción del dominio
 
 El dominio elegido es **Empleado → Legajo**, una relación **1 a 1 unidireccional**, donde:
@@ -313,16 +324,6 @@ Una visión clara, profesional y lista para presentación en el TFI.
 > 🎬 **Video de presentación del TFI:**  
 > [👉 https://www.youtube.com/watch?v=HWPOPGO8yDw]
 
----
-
-## 👥 Equipo de desarrollo
-
-| Integrante | Comisión | Rol / Aporte |
-|-------------|---------------|---------------|
-| **Marina Giselle Cordero** | Comisión 07 | UML, Config, Entities, SQL, Test, Documentación |
-| **Silvia Giardini** | Comisión 07 | DAO (persistencia y CRUD con JDBC, manejo de excepciones) |
-| **Alex Dauria** | Comisión 06 | Service (transacciones, validaciones y reglas de negocio) |
-| **Matías Perdigués** | Comisión 01 | Main (AppMenu, pruebas de flujo y consola interactiva) |
 
 ---
 
