@@ -132,15 +132,20 @@ TFI_ProgramacionII_EmpleadoLegajo/
 │   ├── Service/
 │   │    ├── EmpleadoService.java
 │   │    ├── EmpleadoServiceImpl.java
+│   │    ├── GenericService.java
 │   │    ├── LegajoService.java
 │   │    └── LegajoServiceImpl.java
 │   │
 │   ├── Main/
-│   │    └── AppMenu.java
+│   │    ├── AppMenu.java
+│   │    └── Main.java
 │   │
 │   └── Test/
 │        ├── TestConexion.java
 │        └── TestDAO.java
+│        └── TestServiceBasico.java
+│        └── mainEntidades.java
+
 │
 └── sql/
     ├── sql01_creacion_bd.sql
