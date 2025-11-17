@@ -1,6 +1,6 @@
 # 💻 Trabajo Final Integrador – Programación II  
 ## Aplicación Java con relación **1 → 1 unidireccional** (Empleado → Legajo)  
-**UTN – Tecnicatura Universitaria en Programación a Distancia – **
+**UTN – Tecnicatura Universitaria en Programación a Distancia**
 
 ---
 
