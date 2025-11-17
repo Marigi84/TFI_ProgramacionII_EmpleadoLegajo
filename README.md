@@ -317,8 +317,8 @@ Una visión clara, profesional y lista para presentación en el TFI.
 
 ## 👥 Equipo de desarrollo
 
-| Integrante | Rol / Aporte |
-|-------------|---------------|
+| Integrante | Comisión | Rol / Aporte |
+|-------------|---------------|---------------|
 | **Marina Giselle Cordero** | Comisión 07 | UML, Config, Entities, SQL, Test, Documentación |
 | **Silvia Giardini** | Comisión 07 | DAO (persistencia y CRUD con JDBC, manejo de excepciones) |
 | **Alex Dauria** | Comisión 06 | Service (transacciones, validaciones y reglas de negocio) |
