@@ -319,10 +319,10 @@ Una visión clara, profesional y lista para presentación en el TFI.
 
 | Integrante | Rol / Aporte |
 |-------------|---------------|
-| **Marina Giselle Cordero** | UML, Config, Entities, SQL, Test, Documentación |
-| **Silvia Giardini** | DAO (persistencia y CRUD con JDBC, manejo de excepciones) |
-| **Alex Dauria** | Service (transacciones, validaciones y reglas de negocio) |
-| **Matías Perdigués** | Main (AppMenu, pruebas de flujo y consola interactiva) |
+| **Marina Giselle Cordero** | Comisión 07 | UML, Config, Entities, SQL, Test, Documentación |
+| **Silvia Giardini** | Comisión 07 | DAO (persistencia y CRUD con JDBC, manejo de excepciones) |
+| **Alex Dauria** | Comisión 06 | Service (transacciones, validaciones y reglas de negocio) |
+| **Matías Perdigués** | Comisión 01 | Main (AppMenu, pruebas de flujo y consola interactiva) |
 
 ---
 
