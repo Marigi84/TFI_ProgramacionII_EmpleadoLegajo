@@ -47,7 +47,7 @@ Se incluyen:
 
 - **Lenguaje:** Java JDK 21  
 - **Base de datos:** MySQL Server 8.4.7 LTS  
-- **Conector JDBC:** MySQL Connector/J 8.4.0  
+- **Conector JDBC:** MySQL Connector/J 8.4.0  [link](https://mvnrepository.com/artifact/com.mysql/mysql-connector-j/8.4.0)
 - **IDE recomendado:** NetBeans 21 o IntelliJ IDEA  
 - **Sistema operativo compatible:** Windows, Linux o macOS  
 
