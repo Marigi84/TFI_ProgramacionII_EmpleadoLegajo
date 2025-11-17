@@ -53,6 +53,8 @@ Se incluyen:
 
 ---
 
+:open_file_folder: 
+
 ## 🗄️ Creación de la base de datos
 
 Dentro de la carpeta `/sql/` se incluyen **dos scripts SQL**:
