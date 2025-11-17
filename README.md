@@ -201,22 +201,31 @@ src/test/TestConexion.java
 ## 🧭 Flujo de uso de la aplicación
 
 1. Al iniciar `AppMenu`, el usuario ve un menú de consola con las siguientes opciones:
-   - Crear empleado con legajo asociado  
-   - Listar empleados  
-   - Buscar empleado por DNI  
-   - Actualizar datos de empleado  
-   - Eliminar (baja lógica) empleado  
-   - Salir
+   - Crear empleado con legajo asociado
+   - Buscar registros   
+      └── Buscar empleado por DNI
+      └── Buscar empleado por ID
+      └── Buscar legajo por ID
+      └── Listar todos los empleados activos
+      └── Listar todos los legajos
+   - Actualizar registros
+      └── Actualizar registros de empleados
+      └── Actualizar registros de legajos
+   - Eliminar registros
+      └── Eliminar registros de empleados
+      └── Eliminar registros de legajos  
 
-2. Las operaciones de escritura (`crear`, `actualizar`, `eliminar`) usan transacciones con **commit/rollback** para garantizar integridad.
 
-3. Las validaciones evitan:
+
+3. Las operaciones de escritura (`crear`, `actualizar`, `eliminar`) usan transacciones con **commit/rollback** para garantizar integridad.
+
+4. Las validaciones evitan:
    - DNIs duplicados  
    - Fechas futuras  
    - Campos obligatorios vacíos  
    - Emails inválidos  
 
-4. Los datos quedan persistidos en la base `empresa`.
+5. Los datos quedan persistidos en la base `empresa`.
 
 ---
 
