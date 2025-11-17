@@ -55,10 +55,7 @@ Se incluyen:
 
 <!--## <img width="30" height="30" alt="CITYPNG COM Vector Folder Directory Icon PNG - 800x800" src="https://github.com/user-attachments/assets/d62e5685-ecf6-4c71-9408-7a48a40210fa" /> Scripts SQL incluidos -->
 
-## <img width="512" height="512" alt="image" src="https://github.com/user-attachments/assets/01428b9c-c2dd-4264-af0f-b4c7e4f1be64" />
- Scripts SQL incluidos
-
-
+## <img width="30" height="30" alt="image" src="https://github.com/user-attachments/assets/01428b9c-c2dd-4264-af0f-b4c7e4f1be64" /> Scripts SQL incluidos
 
 Dentro de la carpeta `/sql/` se incluyen **dos scripts SQL**:
 
