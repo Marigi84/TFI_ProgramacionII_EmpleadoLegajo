@@ -203,16 +203,16 @@ src/test/TestConexion.java
 1. Al iniciar `AppMenu`, el usuario ve un menú de consola con las siguientes opciones:
    - Crear empleado con legajo asociado
    - Buscar registros   
-      └── Buscar empleado por DNI
+      ├── Buscar empleado por DNI
       └── Buscar empleado por ID
       └── Buscar legajo por ID
       └── Listar todos los empleados activos
       └── Listar todos los legajos
    - Actualizar registros
-      └── Actualizar registros de empleados
+      ├── Actualizar registros de empleados
       └── Actualizar registros de legajos
    - Eliminar registros
-      └── Eliminar registros de empleados
+      ├── Eliminar registros de empleados
       └── Eliminar registros de legajos  
 
 
