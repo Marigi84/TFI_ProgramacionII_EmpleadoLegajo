@@ -53,11 +53,8 @@ Se incluyen:
 
 ---
 
-<img width="40" height="40" alt="CITYPNG COM Vector Folder Directory Icon PNG - 800x800" src="https://github.com/user-attachments/assets/d62e5685-ecf6-4c71-9408-7a48a40210fa" />
+## <img width="30" height="30" alt="CITYPNG COM Vector Folder Directory Icon PNG - 800x800" src="https://github.com/user-attachments/assets/d62e5685-ecf6-4c71-9408-7a48a40210fa" /> Scripts SQL incluidos
 
-
-
-## 🗄️ Creación de la base de datos
 
 Dentro de la carpeta `/sql/` se incluyen **dos scripts SQL**:
 
@@ -65,6 +62,10 @@ Dentro de la carpeta `/sql/` se incluyen **dos scripts SQL**:
 |--------|-------------|
 | [`sql01_creacion_bd.sql`](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/sql/sql01_creacion_bd.sql.sql) | Crea la base de datos `empresa`, las tablas `empleados` y `legajos`, y define claves primarias, foráneas e índices. |
 | [`sql02_datos_prueba.sql`](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/sql/sql02_datos_prueba.sql) | Inserta registros iniciales de prueba (empleados con legajos asociados). |
+| [`sql03_demo_rollback`](https://github.com/Marigi84/TFI_ProgramacionII_EmpleadoLegajo/blob/main/sql/sql03_demo_rollback) | Prepara un empleado con el legajo “LEG-DUPLICADO” para forzar un error y mostrar el rollback.). |
+
+
+## 🗄️ Creación de la base de datos
 
 ### 📋 Pasos para crear la base desde MySQL Workbench o consola:
 
