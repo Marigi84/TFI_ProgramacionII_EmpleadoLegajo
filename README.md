@@ -57,7 +57,7 @@ Se incluyen:
 
 ## <img width="30" height="30" alt="image" src="https://github.com/user-attachments/assets/01428b9c-c2dd-4264-af0f-b4c7e4f1be64" /> Scripts SQL incluidos
 
-Dentro de la carpeta `/sql/` se incluyen **dos scripts SQL**:
+Dentro de la carpeta `/sql/` se incluyen **tres scripts SQL**:
 
 | Archivo | Descripción |
 |--------|-------------|
