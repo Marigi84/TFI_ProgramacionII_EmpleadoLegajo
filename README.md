@@ -53,7 +53,7 @@ Se incluyen:
 
 ---
 
-<img width="50" height="50" alt="CITYPNG COM Vector Folder Directory Icon PNG - 800x800" src="https://github.com/user-attachments/assets/d62e5685-ecf6-4c71-9408-7a48a40210fa" />
+<img width="40" height="40" alt="CITYPNG COM Vector Folder Directory Icon PNG - 800x800" src="https://github.com/user-attachments/assets/d62e5685-ecf6-4c71-9408-7a48a40210fa" />
 
 
 
